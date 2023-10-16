@@ -25,3 +25,7 @@ console.log(typeof "Anil") // string
 console.log(typeof age) // number
 console.log(typeof null) // object
 console.log(typeof undefined) // undefined
+
+const num = 456n;
+
+console.log(typeof num);
