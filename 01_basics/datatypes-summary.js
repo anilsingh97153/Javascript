@@ -72,3 +72,7 @@ userTwo.upi = "user2@ybl";
 
 console.log(userOne);
 console.log(userTwo);
+
+const num = 56n;
+
+console.log(typeof num);
