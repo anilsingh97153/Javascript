@@ -33,5 +33,33 @@ function loginUserMessage(userName) {
     return `${userName} just logged in.`
 }
 
-console.log(loginUserMessage("Anil"));
-console.log(loginUserMessage()); // If I don't pass anything to function => undefined just logged in.
+// console.log(loginUserMessage("Anil"));
+// console.log(loginUserMessage()); // If I don't pass anything to function => undefined just logged in.
+
+// passing multiple values using ...operator(rest operator)
+function calculateCartPrice(...num1) {
+  return num1;
+}
+
+// console.log(calculateCartPrice(200, 400, 500));
+
+const user = {
+  username: "Anil",
+  price: 199
+}
+
+function handleObject(anyObject) {
+  console.log(`Username is ${anyObject.username} and price is ${anyObject.price}`);
+}
+
+// handleObject(user);
+handleObject({username:"Sam",
+price:399});
+
+const myNewArray = [200, 400, 100, 600]
+
+function returnSecondValue(getArray) {
+  return getArray[1];
+}
+
+console.log(returnSecondValue(myNewArray));
