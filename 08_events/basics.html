@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+  </head>
+
+  <body>
+    <button>Change color</button>
+    <!-- <h1>Clock</h1> -->
+  </body>
+  <script>
+    //Events are things that happen in the system you are programming — the system produces (or "fires") a signal of some kind when an event occurs, and provides a mechanism by which an action can be automatically taken (that is, some code running) when the event occurs. Events are fired inside the browser window, and tend to be attached to a specific item that resides in it. This might be a single element, a set of elements, the HTML document loaded in the current tab, or the entire browser window. There are many different types of events that can occur.
+    // For example:
+    // The user selects, clicks, or hovers the cursor over a certain element.
+    // The user chooses a key on the keyboard.
+    // The user resizes or closes the browser window.
+    // A web page finishes loading.
+    // A form is submitted.
+    // A video is played, paused, or ends.
+    // An error occurs.
+
+    // const h1 = document.querySelector("h1");
+    // setInterval(() => {
+    //     const date = new Date();
+    //     const time = date.toLocaleTimeString();
+    //     h1.innerHTML = time;
+    // }, 1000)
+
+    const btn = document.querySelector("button");
+
+    function randomColor(number) {
+      // random number from 0 to 255, all inclusive
+      return Math.floor(Math.random() * (number + 1));
+    }
+    const changeBackground = btn.addEventListener("click", () => {
+      const rndCol = `rgb(${randomColor(255)}, ${randomColor(
+        255
+      )}, ${randomColor(255)})`;
+      document.querySelector("body").style.backgroundColor = rndCol;
+    });
+
+    // click, mouseover, mouseout, dblclick, keydown, focus, blur, play.
+  </script>
+</html>
