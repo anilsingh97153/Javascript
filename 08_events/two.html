@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout() // part of web API, and when it is runned, it calls the web API as well.
+    // setTimeout(function(){
+    //     console.log("Anil Singh");
+    // }, 2000); // when we run a program, it takes 2 seconds time and then display above message.
+
+    // setInterval(() => {
+    //     console.log("Anil")
+    // }, 2000); // same as setTimeout(), but it prints same the same thing repeatedly after a certain interval.
+
+    const sayAnil = function(){
+        console.log("Anil");
+    }
+    // setTimeout(sayAnil, 2000); // after taking 2 seconds,  sayAnil function will run for one time only.
+
+    // setInterval(sayAnil, 1000) // after each 1 seconds interval sayAnil method will run in a loop
+
+    const changeText = function(){
+    document.querySelector('h1').
+    innerHTML = "Best Js series"
+    }
+    const changeMe = setTimeout(changeText, 2000)
+
+    document.querySelector('#stop').
+    addEventListener('click', function(){
+        clearTimeout(changeMe)
+    }) // when program executes and if I have clicked on stop button before 2 seconds, then changedText will not run.
+</script>
+</html>
