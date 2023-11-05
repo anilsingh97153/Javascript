@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // browser event listeners
+    // not a good approach: to use onClick
+    // document.getElementById("owl").onclick = () => {
+    //     alert("Owl clicked!")
+    // }
+    // attachEvent(): it was used in earlier days of internet explorer
+    // jQuery - on
+
+    // Useful to read in events: type, timestamp, defaultPrevented
+    // target, toElement, srcElement(must to study)
+    // interview perspective:  clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keycode
+
+    // best approach: very advance as well, even though it is asked in the interviews
+    // document.getElementById('owl').addEventListener('click', function() {}, false)
+    // document.getElementById('owl').addEventListener('click', (event) => {
+    //     console.log(event);
+    // }, false) // false is default argument of addEventListener function
+
+    // Event bubbling: inside to outside tracking of events, as from owl to images ul in below case, when clicked on inside element where owl is inside the images ul.
+
+    // document.getElementById('images').addEventListener('click', (event) => {
+    //     console.log("Clicked inside the ul");
+    // }, false)
+    // document.getElementById('owl').addEventListener('click', (event) => {
+    //     console.log("clicked owl");
+    // }, false)
+
+
+    // Capturing mode: capturing from top to bottom or if we inside event is being fired, in that case also outside event will be captured first.
+    // when we true below, it is in capturing mode.
+
+    // document.getElementById('images').addEventListener('click', (event) => {
+    //     console.log("Clicked inside the ul");
+    // }, true)
+    // document.getElementById('owl').addEventListener('click', (event) => {
+    //     console.log("clicked owl");
+    // }, true)
+
+    // Event propogation/bubbling depends on the use cases.
+
+
+    // There might be some cases we want to avoid bubbling/propogation, even when we have created events at oustide and inside level as well. 
+    // or we don't want the bubbling up
+
+    // document.getElementById('images').addEventListener('click', (event) => {
+    //     console.log("Clicked inside the ul");
+    // }, true)
+    // document.getElementById('owl').addEventListener('click', (event) => {
+    //     console.log("clicked owl");
+    //     // event.stopPropagation();
+    // }, true)
+
+    // when the arg is:
+    // false: bubbling => inside to outside, when we click inside
+    // true: capturing mode => outside to inside, when click inside
+
+
+    // preventDefault()
+    // in the code above when we click on google link, it redirect us to google.com by default, so we want to prevent that by default and wanna do something else.
+
+    document.getElementById('google').addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("Google clicked.");
+    }, false)
+
+    document.querySelector('#images').addEventListener("click", (event) => {
+        console.log(event)
+        console.log(event.target.tagName) // from which exact image target the event is occuring or getting fired
+        // event.target.parentNode // parent of the target, or when clicked on image, parent of image which is 'li' will be displayed in console
+        if(event.target.tagName === 'IMG') { // we are only removing images
+        let removeIt = event.target.parentNode;
+        removeIt.remove(); // when clicked on image, whole li which is containing the image, will be removed, including the image.
+        // removeIt.parentNode.removeChild(removeIt); same as above
+        }
+    }, false)
+</script>
+</html>
