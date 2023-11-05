@@ -1,0 +1,6 @@
+1. Javascript is a synchonuous language and single threaded.
+1-a. synchornuous => one step after another.
+1-b. Above is the part of Default js.
+
+2. Single threaded => Each operation waits for the last one to complete before executing.
+ 
