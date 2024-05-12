@@ -38,7 +38,7 @@
     //     console.log(event);
     // }, false) // false is default argument of addEventListener function
 
-    // Event bubbling: inside to outside tracking of events, as from owl to images ul in below case, when clicked on inside element where owl is inside the images ul.
+    // Event bubbling: inside to outside tracking/working of events, as in the given example, from 'owl' to 'images' ul in below case, when clicked on inside element where owl is inside the images ul.
 
     // document.getElementById('images').addEventListener('click', (event) => {
     //     console.log("Clicked inside the ul");
@@ -48,7 +48,7 @@
     // }, false)
 
 
-    // Capturing mode: capturing from top to bottom or if we inside event is being fired, in that case also outside event will be captured first.
+    // Capturing mode: opposite of bubbling/ capturing from top to bottom or if we inside event is being fired, in that case also outside event will be captured first.
     // when we true below, it is in capturing mode.
 
     // document.getElementById('images').addEventListener('click', (event) => {
@@ -58,7 +58,7 @@
     //     console.log("clicked owl");
     // }, true)
 
-    // Event propogation/bubbling depends on the use cases.
+    // Event propogation/bubbling   depends on the use cases.
 
 
     // There might be some cases we want to avoid bubbling/propogation, even when we have created events at oustide and inside level as well. 
@@ -69,7 +69,7 @@
     // }, true)
     // document.getElementById('owl').addEventListener('click', (event) => {
     //     console.log("clicked owl");
-    //     // event.stopPropagation();
+    //     // event.stopPropagation(); using method to stop bubbling.
     // }, true)
 
     // when the arg is:
