@@ -40,12 +40,12 @@ const obj2 = {
 }
 
 // const obj3 = { obj1, obj2};
-// console.log(obj3); // o/p: { obj1: { '1': 'a', '2': 'b' }, obj2: { '3': 'a', '4': 'b' } }
+// console.log(obj3); // o/p: { obj1: { '1': 'a', '2': 'b' }, obj2: { '3': 'a', '4': 'b' } } // not actually merge in as an one single object key value pairs.
 
-// const obj3 = Object.assign({}, obj1,obj2); // first arg in assig method is treated like target object and rest are source, that's why if we give {} as first give so it make sure to act like a target. 
+// const obj3 = Object.assign({}, obj1,obj2); // first arg in assign method is treated like target object and rest are source, that's why if we give {} as first give so it make sure to act like a target. 
 // console.log(obj3); // { '1': 'a', '2': 'b', '3': 'a', '4': 'b' }
 
-const obj3 = {...obj1, ...obj2};
+const obj3 = {...obj1, ...obj2}; //latest and best recommended way to merge objects
 // console.log(obj3);
 
 // array of object
@@ -67,16 +67,16 @@ const users = [
 // console.log(users[1].email);
 // console.log(tinderUser);
 
-// console.log(Object.keys(tinderUser)); // array of all the keys of an object. It is very interesting and really important from the perspective of databases.
+// console.log(Object.keys(tinderUser));  // array of all the keys of an object. It is very interesting and really important from the perspective of databases.
 
 // console.log(Object.values(tinderUser)); // array of all the values of an object
 
-// console.log(Object.entries(tinderUser)); //inside an array each key value pair is stored as an array.
+// console.log(Object.entries(tinderUser)); //inside an array each key value pair is stored as an array. comparatively less used
 
-// console.log(tinderUser.hasOwnProperty('isLoggedIn')); // true
+// console.log(tinderUser.hasOwnProperty('isLoggedIn')); // true 
 
 
-// Object destructuring
+// Object destructuring => way of creating new variables by extracting values from the properties of an object, using a syntax that mirrors the object structure.
 
 const course = {
     courseName: "js in hindi",
@@ -97,3 +97,5 @@ console.log(instructor);
 //     "coursename":"js in hindi",
 //     "price": "free"
 // }
+
+// make use of JSON formatter to format data from api's
